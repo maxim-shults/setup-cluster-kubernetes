@@ -20,4 +20,4 @@ add in containers /
         - name: IPALLOC_RANGE
           value: 10.244.0.0/16
 
-join the node
+join the nodes
