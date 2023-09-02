@@ -24,13 +24,13 @@ sudo sysctl --system
 #Set up the repository
 sudo apt-get update
 sudo apt-get install ca-certificates curl gnupg
+
 # Add Docker's official GPG key:
 sudo install -m 0755 -d /etc/apt/keyrings
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # set up the repository:
-
 echo \
           "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
             "$(. /etc/os-release && echo "$VERSION_CODENAME")" stable" | \
@@ -50,16 +50,14 @@ echo "[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
 servcie containerd restart
 
 
-
+# Installing kubeadm
 sudo apt-get update
-# apt-transport-https may be a dummy package; if so, you can skip that package
 sudo apt-get install -y apt-transport-https ca-certificates curl
 
 curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 # This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list
 echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
-
 
 #Update the apt package index, install kubelet, kubeadm and kubectl,
 
