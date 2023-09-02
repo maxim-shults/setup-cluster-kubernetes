@@ -9,3 +9,13 @@ if everything is ok you should see Your Kubernetes control-plane has initialized
 follow the orders \
 setup network addon \
 kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml
+last thing edit DaemonSet \
+kubectl edit ds weave-net -n kube-system \
+add in containers /
+
+
+       - command:
+        - /home/weave/launch.sh
+        env:
+        - name: IPALLOC_RANGE
+          value: 10.244.0.0/16
