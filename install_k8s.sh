@@ -1,5 +1,5 @@
 #!/bin/sh
-set -ex
+
 #Forwarding IPv4 and letting iptables see bridged traffic
 
 cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
@@ -69,6 +69,6 @@ sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
-chmod +x "$0"
+
 
 
