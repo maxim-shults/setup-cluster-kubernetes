@@ -47,8 +47,7 @@ echo "[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
        [plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
         SystemdCgroup = true" > /etc/containerd/config.toml
 
-servcie containerd restart
-
+sudo service containerd restart
 
 # Installing kubeadm
 sudo apt-get update
