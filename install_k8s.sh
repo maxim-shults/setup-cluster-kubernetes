@@ -70,4 +70,4 @@ sudo apt-get install -y kubelet kubeadm kubectl
 sudo apt-mark hold kubelet kubeadm kubectl
 
 
-chmod +x 
+chmod +x install_k8s.sh
